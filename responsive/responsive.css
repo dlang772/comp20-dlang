@@ -1,0 +1,8 @@
+@media screen and (min-width: 1201px) {
+	.software {
+		width: 128px;
+		height: 240px;
+		background: url("software.png") 0 0px;
+	}
+}
+
