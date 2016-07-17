@@ -37,3 +37,43 @@
 		background: url("software.png") 128px 0px;
 	}
 }
+
+@media screen and (min-width: 701px) and (max-width: 800px) {
+	.software {
+		width: 128px;
+		height: 240px;
+		background: url("software.png") 640px 240px;
+	}
+}
+
+@media screen and (min-width: 601px) and (max-width: 700px) {
+	.software {
+		width: 128px;
+		height: 240px;
+		background: url("software.png") 512px 240px;
+	}
+}
+
+@media screen and (min-width: 501px) and (max-width: 600px) {
+	.software {
+		width: 128px;
+		height: 240px;
+		background: url("software.png") 384px 240px;
+	}
+}
+
+@media screen and (min-width: 401px) and (max-width: 500px) {
+	.software {
+		width: 128px;
+		height: 240px;
+		background: url("software.png") 256px 240px;
+	}
+}
+
+@media screen and (min-width: 301px) and (max-width: 400px) {
+	.software {
+		width: 128px;
+		height: 240px;
+		background: url("software.png") 128px 240px;
+	}
+}
