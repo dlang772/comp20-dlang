@@ -1,8 +1,14 @@
-body {
-	font: "Lucida Console", Lucida;
+#title {
+	font: Lucida;
+	font-style: oblique;
+	font-weight: bold;
+	font-variant: small-caps;
+}
+
+#lyrics {
+	font: Lucida;
 	font-style: oblique;
 	font-weight: bold;
 	font-variant: small-caps;
 	font-size: 24px;
 }
-
