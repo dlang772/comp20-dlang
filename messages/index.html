@@ -9,7 +9,7 @@
       function parse() {
         jsonData = '[{"id":1,"content":"Do you really want to hurt me?","username":"Boy"},{"id":2,"content":"Do you really want to make me cry?","username":"George"}]';
       // Your code here......
-        console.log(JSON.parse(jsonData));
+        // console.log(JSON.parse(jsonData));
         var parseData = JSON.parse(jsonData);
 
         // console.log(parseData[0].content);
@@ -17,7 +17,7 @@
 
         for (i in parseData) {
         chat += parseData[i].content + ' ' + parseData[i].username + "<br/>";
-        console.log(i);
+        // console.log(i);
         }
         
         document.getElementById("messages").innerHTML = chat;
