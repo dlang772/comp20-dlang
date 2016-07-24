@@ -15,6 +15,54 @@
 
 		<script>
 	// Complete this section and create a CSS file named style.css
+		//window.onload = function() {
+		//	displayScript();
+		//}
+
+
+		//function displayScript() {
+			var video = document.getElementById("music_video");
+			var lyrics = document.getElementById("lyrics");
+
+			video.addEventListener("timeupdate", function() {
+				console.log(video.currentTime);
+
+			if (video.currentTime > 8 && video.currentTime < 22) {
+				console.log(video.currentTime);
+				lyrics.innerHTML = ;
+			}
+
+			else if (video.currentTime > 8 && video.currentTime < 22) {
+				console.log(video.currentTime);
+				lyrics.innerHTML = "<h2> The sun shines bright in My Old Kentucky Home, <br/> 'Tis summer, the people are gay; </h2>";
+			}
+
+			else if (video.currentTime > 23 && video.currentTime < 35) {
+				console.log(video.currentTime);
+				lyrics.innerHTML = "<h2> The corn-top's ripe and the meadow's in the bloom <br/> While the birds make music all the day. </h2>";
+			}
+
+			else if (video.currentTime > 36 && video.currentTime < 49) {
+				console.log(video.currentTime);
+				lyrics.innerHTML = "<h2> The young folks roll on the little cabin floor, <br/> All merry, all happy and bright; </h2>";
+			}
+
+			else if (video.currentTime > 50 && video.currentTime < 64) {
+				console.log(video.currentTime);
+				lyrics.innerHTML = "<h2> By 'n' by hard times comes a knocking at the door, <br/> Then My Old Kentucky Home, good night! </h2>";
+			}
+
+			else if (video.currentTime > 65 && video.currentTime < 76) {
+				console.log(video.currentTime);
+				lyrics.innerHTML = "<h2> Chorus <br/> Weep no more my lady <br/> Old weep no more today; </h2>";
+			}
+
+			else if (video.currentTime > 77 && video.currentTime < 93) {
+				console.log(video.currentTime);
+				lyrics.innerHTML = "<h2> We will sing one song <br/> For My Old Kentucky Home <br/> For My Old Kentucky Home, far away </h2>";
+			}
+			
+	});
 		</script>
 	</body>
 </html>
