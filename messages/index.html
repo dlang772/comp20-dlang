@@ -13,11 +13,16 @@
         var parseData = JSON.parse(jsonData);
 
         // console.log(parseData[0].content);
-        
-        document.getElementById("messages").innerHTML = 
-        parseData[0].content + ' ' + parseData[0].username + "<br/>" + parseData[1].content + ' ' + parseData[1].username;
+        var chat = "";
 
+        for (i in parseData) {
+        chat += parseData[i].content + ' ' + parseData[i].username + "<br/>";
+        console.log(i);
+        }
+        
+        document.getElementById("messages").innerHTML = chat;
       }
+
       </script>
 </head>
 
