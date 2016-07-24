@@ -14,22 +14,16 @@
 		<div id="lyrics"></div>
 
 		<script>
-	// Complete this section and create a CSS file named style.css
-		//window.onload = function() {
-		//	displayScript();
-		//}
 
-
-		//function displayScript() {
 			var video = document.getElementById("music_video");
 			var lyrics = document.getElementById("lyrics");
 
 			video.addEventListener("timeupdate", function() {
 				console.log(video.currentTime);
 
-			if (video.currentTime > 8 && video.currentTime < 22) {
+			if (video.currentTime > 0 && video.currentTime < 7) {
 				console.log(video.currentTime);
-				lyrics.innerHTML = ;
+				lyrics.innerHTML = '<p><img src="kentucky_flag.jpg" alt="kentucky flag"</></p>';
 			}
 
 			else if (video.currentTime > 8 && video.currentTime < 22) {
