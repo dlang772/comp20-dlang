@@ -49,6 +49,35 @@ var Redline2 = new google.maps.Polyline({
 	strokeWeight: 2
 });
 
+
+for (var i = 0; i < 18; i++) {
+	setupMarker(i, RedlineCoordinates1);
+};
+
+for (var i = 0; i < 5; i++) {
+	setupMarker(i, RedlineCoordinates2);
+};
+
+function setupMarker (index, array) {
+	console.log(array[index]);
+	var image = 'beachflag.jpg';
+    var beachMarker = new google.maps.Marker({
+      position: array[index],
+      map: map,
+      icon: image
+    });
+ beachMarker.setMap(map);
+
+}
+
 Redline1.setMap(map)+Redline2.setMap(map);
 
 
+
+// var image = 'beachflag.jpg';
+//         var beachMarker = new google.maps.Marker({
+//           position: {lat: 42.395428, lng: -71.142483},
+//           map: map,
+//           icon: image
+//         });
+// beachMarker.setMap(map);
