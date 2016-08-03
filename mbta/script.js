@@ -59,7 +59,6 @@ for (var i = 0; i < 5; i++) {
 };
 
 function setupMarker (index, array) {
-	console.log(array[index]);
 	var image = 'beachflag.jpg';
     var beachMarker = new google.maps.Marker({
       position: array[index],
