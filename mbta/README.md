@@ -13,3 +13,8 @@ Still working on displaying the wait times correctly.
 
 This assignment was completed alone and has currently taken a total of 5 hours. 
 
+
+[Update: 08/04/16-1:00AM] Fixed map. Now infowindow will show the wait times for all trains. Still cannot display the polyline from the user to the nearest station.
+
+This assignment has taken 7 hours.
+
