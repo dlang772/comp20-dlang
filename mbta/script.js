@@ -21,6 +21,27 @@ function logLocation(pos) {
 navigator.geolocation.getCurrentPosition(logLocation);
 
 var RedlineCoordinates1 = [
+	{position: {lat: 42.395428, lng: -71.142483}, stopName: "Alewife"},
+	{position: {lat: 42.39674, lng: -71.121815}, stopName: "Davis"},
+    {position: {lat: 42.3884, lng: -71.11914899999999}, stopName: "Porter"},
+    {position: {lat: 42.373362, lng: -71.118956}, stopName: "Harvard"},
+    {position: {lat: 42.365486, lng: -71.103802}, stopName: "Central"},
+    {position: {lat: 42.36249079, lng: -71.08617653}, stopName: "Kendall"},
+    {position: {lat: 42.361166, lng:  -71.070628}, stopName: "Charles/MGH"},
+    {position: {lat: 42.35639457, lng: -71.0624242}, stopName: "Park Street"},
+    {position: {lat: 42.355518, lng: -71.060225}, stopName: "Downtown Crossing"},
+	{position: {lat: 42.352271, lng: -71.05524200000001}, stopName: "South"},
+    {position: {lat: 42.342622, lng: -71.056967}, stopName: "Broadway"},
+    {position: {lat: 42.330154, lng: -71.057655}, stopName: "Andrew"},
+    {position: {lat: 42.320685, lng: -71.052391}, stopName: "JFK/UMass"},
+    {position: {lat: 42.275275, lng: -71.0203369}, stopName: "North Quincy"},
+    {position: {lat: 42.2665139, lng: -71.029583}, stopName: "Wollaston"},
+    {position: {lat: 42.251809, lng: -71.005409}, stopName: "Quincy Center"},
+    {position: {lat: 42.233391, lng: -71.007153}, stopName: "Quincy Adams"},
+    {position: {lat: 42.2078543, lng:  -71.0011385}, stopName: "Braintree"},
+]
+   
+var Redline1coords = [
 	{lat: 42.395428, lng: -71.142483},
 	{lat: 42.39674, lng: -71.121815},
     {lat: 42.3884, lng: -71.11914899999999},
@@ -40,8 +61,16 @@ var RedlineCoordinates1 = [
     {lat: 42.233391, lng: -71.007153},
     {lat: 42.2078543, lng:  -71.0011385}
 ]
-   
+
 var RedlineCoordinates2 = [
+	{position: {lat: 42.320685, lng: -71.052391}, stopName: "JFK/UMass"},
+	{position: {lat: 42.31129, lng: -71.053331}, stopName: "Savin Hill"},
+	{position: {lat: 42.300093, lng: -71.061667}, stopName: "Fields Corner"},
+	{position: {lat: 42.29312583, lng: -71.06573796000001}, stopName: "Shawmut"},
+	{position: {lat: 42.284652, lng: -71.06448899999999}, stopName: "Ashmont"},
+]
+
+var Redline2coords = [
 	{lat: 42.320685, lng: -71.052391},
 	{lat: 42.31129, lng: -71.053331},
 	{lat: 42.300093, lng: -71.061667},
@@ -50,7 +79,7 @@ var RedlineCoordinates2 = [
 ]
 
 var Redline1 = new google.maps.Polyline({
-	path: RedlineCoordinates1,
+	path: Redline1coords,
 	geodesic: true,
 	strokeColor: '#FF0000',
 	strokeOpacity: 1.0,
@@ -58,7 +87,7 @@ var Redline1 = new google.maps.Polyline({
 });
 
 var Redline2 = new google.maps.Polyline({
-	path: RedlineCoordinates2,
+	path: Redline2coords,
 	geodesic: true,
 	strokeColor: '#FF0000',
 	strokeOpacity: 1.0,
@@ -82,13 +111,13 @@ function setupMarker (index, array) {
 	var image = 'marker.jpg';
 
     var mapMarker = new google.maps.Marker({
-      position: array[index],
+      position: array[index].position,
       map: map,
       icon: image
     });
 
     mapMarker.addListener('click', function() {
-		parse();
+		parse(array[index].stopName);
 		infowindow.open(map, mapMarker);
 	});
 
@@ -101,21 +130,22 @@ Redline1.setMap(map)+Redline2.setMap(map);
 
 
 
-function parse(){
+function parse(stopName){
 	var xmlhttp = new XMLHttpRequest();
 	var url = "https://powerful-depths-66091.herokuapp.com/redline.json";
 
 	xmlhttp.onreadystatechange = function() {
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
         var parseData = JSON.parse(xmlhttp.responseText);
-        printData(parseData);
+        printData(parseData, stopName);
     }
 };
 xmlhttp.open("GET", url, true);
 xmlhttp.send();
 }
 
-function printData(parseData) {
+function printData(parseData, stopName) {
+	// console.log(stopName);
 	var trainTimes = "";
 	console.log(parseData);
 	var triplist = parseData.TripList;
@@ -127,16 +157,25 @@ function printData(parseData) {
  	console.log(line);
  	console.log(trips);
  	
+ 	var trainInfo = "";
 
 	for (i in trips) {
+		trainInfo += "Train to "+trips[i].Destination+":";
 		var predictions = trips[0].Predictions
 		for (j in predictions) {
-			if (j = 1) {
+			if (stopName == predictions[j].Stop) {
+				console.log(stopName);
 				console.log("Wait time for "+predictions[j].Stop+ " is "+predictions[j].Seconds+" seconds.");
-				info = "Wait time for "+predictions[j].Stop+ " is "+predictions[j].Seconds+" seconds.";
-				infowindow.setContent(info);
+				trainInfo += "Wait time for "+predictions[j].Stop+ " is "+predictions[j].Seconds+" seconds.";
+				// infowindow.setContent(info);
 			}
+			// if (stopName != predictions[j].Stop) {
+			// 	trainInfo += "Train Passed.";
+			// 	// infowindow.setContent(info);
+			// }
+			trainInfo += "</b>";
 		}
+		infowindow.setContent(trainInfo);
 		// if (firs)
         // console.log(trainTimes += trips[i]. + ' ' + trips[i].Stop + "<br/>");
     }
