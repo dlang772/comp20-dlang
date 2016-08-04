@@ -1,7 +1,7 @@
 
 function parse(){
 	var xmlhttp = new XMLHttpRequest();
-	var url = "data.json";
+	var url = "https://messagehub.herokuapp.com/messages.json";
 
 	xmlhttp.onreadystatechange = function() {
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
