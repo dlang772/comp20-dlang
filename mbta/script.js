@@ -74,17 +74,25 @@ for (var i = 0; i < 5; i++) {
 	setupMarker(i, RedlineCoordinates2);
 };
 
-function setupMarker (index, array) {
-	var image = 'beachflag.jpg';
-    var imageOfMe = 'danceCat.gif'
+var infowindow = new google.maps.InfoWindow({
+	content: "hi"
+});
 
-    var beachMarker = new google.maps.Marker({
+function setupMarker (index, array) {
+	var image = 'marker.jpg';
+
+    var mapMarker = new google.maps.Marker({
       position: array[index],
       map: map,
       icon: image
     });
 
-    beachMarker.setMap(map);
+    mapMarker.addListener('click', function() {
+		parse();
+		infowindow.open(map, mapMarker);
+	});
+
+    mapMarker.setMap(map);
 
 }
 
@@ -92,10 +100,51 @@ Redline1.setMap(map)+Redline2.setMap(map);
 
 
 
-// var image = 'beachflag.jpg';
-//         var beachMarker = new google.maps.Marker({
-//           position: {lat: 42.395428, lng: -71.142483},
-//           map: map,
-//           icon: image
-//         });
-// beachMarker.setMap(map);
+
+function parse(){
+	var xmlhttp = new XMLHttpRequest();
+	var url = "https://powerful-depths-66091.herokuapp.com/redline.json";
+
+	xmlhttp.onreadystatechange = function() {
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        var parseData = JSON.parse(xmlhttp.responseText);
+        printData(parseData);
+    }
+};
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
+}
+
+function printData(parseData) {
+	var trainTimes = "";
+	console.log(parseData);
+	var triplist = parseData.TripList;
+ 	console.log(triplist);
+ 	var line = triplist.Line;
+ 	var trips = triplist.Trips;
+ 	var currTime = triplist.CurrentTime;
+ 	console.log(currTime);
+ 	console.log(line);
+ 	console.log(trips);
+ 	
+
+	for (i in trips) {
+		var predictions = trips[0].Predictions
+		for (j in predictions) {
+			if (j = 1) {
+				console.log("Wait time for "+predictions[j].Stop+ " is "+predictions[j].Seconds+" seconds.");
+				info = "Wait time for "+predictions[j].Stop+ " is "+predictions[j].Seconds+" seconds.";
+				infowindow.setContent(info);
+			}
+		}
+		// if (firs)
+        // console.log(trainTimes += trips[i]. + ' ' + trips[i].Stop + "<br/>");
+    }
+
+
+        // document.getElementById("messages").innerHTML = trainTimes;
+
+ 	
+}
+
+
