@@ -23,14 +23,14 @@ navigator.geolocation.getCurrentPosition(logLocation);
 var RedlineCoordinates1 = [
 	{position: {lat: 42.395428, lng: -71.142483}, stopName: "Alewife"},
 	{position: {lat: 42.39674, lng: -71.121815}, stopName: "Davis"},
-    {position: {lat: 42.3884, lng: -71.11914899999999}, stopName: "Porter"},
-    {position: {lat: 42.373362, lng: -71.118956}, stopName: "Harvard"},
-    {position: {lat: 42.365486, lng: -71.103802}, stopName: "Central"},
-    {position: {lat: 42.36249079, lng: -71.08617653}, stopName: "Kendall"},
+    {position: {lat: 42.3884, lng: -71.11914899999999}, stopName: "Porter Square"},
+    {position: {lat: 42.373362, lng: -71.118956}, stopName: "Harvard Square"},
+    {position: {lat: 42.365486, lng: -71.103802}, stopName: "Central Square"},
+    {position: {lat: 42.36249079, lng: -71.08617653}, stopName: "Kendall/MIT"},
     {position: {lat: 42.361166, lng:  -71.070628}, stopName: "Charles/MGH"},
     {position: {lat: 42.35639457, lng: -71.0624242}, stopName: "Park Street"},
     {position: {lat: 42.355518, lng: -71.060225}, stopName: "Downtown Crossing"},
-	{position: {lat: 42.352271, lng: -71.05524200000001}, stopName: "South"},
+	{position: {lat: 42.352271, lng: -71.05524200000001}, stopName: "South Station"},
     {position: {lat: 42.342622, lng: -71.056967}, stopName: "Broadway"},
     {position: {lat: 42.330154, lng: -71.057655}, stopName: "Andrew"},
     {position: {lat: 42.320685, lng: -71.052391}, stopName: "JFK/UMass"},
@@ -104,7 +104,7 @@ for (var i = 0; i < 5; i++) {
 };
 
 var infowindow = new google.maps.InfoWindow({
-	content: "hi"
+	content: "No train"
 });
 
 function setupMarker (index, array) {
@@ -145,44 +145,33 @@ xmlhttp.send();
 }
 
 function printData(parseData, stopName) {
-	// console.log(stopName);
 	var trainTimes = "";
-	console.log(parseData);
 	var triplist = parseData.TripList;
- 	console.log(triplist);
  	var line = triplist.Line;
  	var trips = triplist.Trips;
  	var currTime = triplist.CurrentTime;
- 	console.log(currTime);
- 	console.log(line);
- 	console.log(trips);
- 	
  	var trainInfo = "";
 
+
 	for (i in trips) {
-		trainInfo += "Train to "+trips[i].Destination+":";
-		var predictions = trips[0].Predictions
+		var predictions = trips[i].Predictions
 		for (j in predictions) {
 			if (stopName == predictions[j].Stop) {
-				console.log(stopName);
-				console.log("Wait time for "+predictions[j].Stop+ " is "+predictions[j].Seconds+" seconds.");
-				trainInfo += "Wait time for "+predictions[j].Stop+ " is "+predictions[j].Seconds+" seconds.";
-				// infowindow.setContent(info);
+				trainInfo += "<div>Wait time for "+predictions[j].Stop+" towards "+trips[i].Destination+" is "+predictions[j].Seconds+" seconds.</br></div>";
 			}
 			// if (stopName != predictions[j].Stop) {
 			// 	trainInfo += "Train Passed.";
-			// 	// infowindow.setContent(info);
+			// 	infowindow.setContent(trainInfo);
 			// }
-			trainInfo += "</b>";
+			// infowindow.setContent(trainInfo);
+			
 		}
-		infowindow.setContent(trainInfo);
-		// if (firs)
-        // console.log(trainTimes += trips[i]. + ' ' + trips[i].Stop + "<br/>");
+		
+	    infowindow.setContent(
+	    	trainInfo
+	    );
+		
     }
-
-
-        // document.getElementById("messages").innerHTML = trainTimes;
-
  	
 }
 
