@@ -3,6 +3,22 @@ var mapOptions = {
     center: new google.maps.LatLng(42.352271, -71.05524200000001), zoom: 11
 }
 var map = new google.maps.Map(mapCanvas, mapOptions);
+var myLat;
+var myLong;
+
+function logLocation(pos) {
+	var crds = pos.coords;
+	myLat = crds.latitude;
+	myLong = crds.longitude;
+
+    var meMarker = new google.maps.Marker({
+      position: {lat: myLat, lng: myLong},
+      map: map,
+    });
+
+};
+
+navigator.geolocation.getCurrentPosition(logLocation);
 
 var RedlineCoordinates1 = [
 	{lat: 42.395428, lng: -71.142483},
@@ -60,12 +76,15 @@ for (var i = 0; i < 5; i++) {
 
 function setupMarker (index, array) {
 	var image = 'beachflag.jpg';
+    var imageOfMe = 'danceCat.gif'
+
     var beachMarker = new google.maps.Marker({
       position: array[index],
       map: map,
       icon: image
     });
- beachMarker.setMap(map);
+
+    beachMarker.setMap(map);
 
 }
 
