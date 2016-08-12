@@ -132,7 +132,7 @@ Redline1.setMap(map)+Redline2.setMap(map);
 
 function parse(stopName){
 	var xmlhttp = new XMLHttpRequest();
-	var url = "https://powerful-depths-66091.herokuapp.com/redline.json";
+	var url = "https://warm-fortress-73167.herokuapp.com/redline.json";
 
 	xmlhttp.onreadystatechange = function() {
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
