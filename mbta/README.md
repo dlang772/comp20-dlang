@@ -18,3 +18,10 @@ This assignment was completed alone and has currently taken a total of 5 hours.
 
 This assignment has taken 7 hours.
 
+
+[Update: 08/11/16-11:02PM] Currently all aspects of the new server are successfully implemented. The old mbta maps successfully uses the new server for data. 
+
+This assignment was completed in 3 hours. 
+
+This README reflects the latest one on heroku git.
+
