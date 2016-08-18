@@ -13,13 +13,13 @@
 
 <ol>
 	<li>Introduction:</li>
-		<ul>This is an examination of the security of the sudo Foursquare website dedicated to storing user checkin data. Users can post their checkins to the server to create a log of past locations and the time of visit.</ul>
+		<ul><p>This is an examination of the security of the sudo Foursquare website dedicated to storing user checkin data. Users can post their checkins to the server to create a log of past locations and the time of visit.</p></ul>
 
 	<li>Methodology:</li>
-		<ul>The methodology I used to test the application was first by using the "black box" method, which involves attacking the website without examining the source code to check for basic XSS vulnerabilities. Then I looked at the source code to determine whether other instances of XSS vulnerabilities existed.</ul>
+		<ul><p>The methodology I used to test the application was first by using the "black box" method, which involves attacking the website without examining the source code to check for basic XSS vulnerabilities. Then I looked at the source code to determine whether other instances of XSS vulnerabilities existed.</p></ul>
 
 	<li>Abstract (General Issues)</li>
-		<ul>The biggest problem with the application was the possibility for XSS attacks. The first attack was a post of javascript in the place of the expected user "login" field. The javascript created a simple redirect to a YouTube video.
+		<ul><p>The biggest problem with the application was the possibility for XSS attacks. The first attack was a post of javascript in the place of the expected user "login" field. The javascript created a simple redirect to a YouTube video.</p></ul>
   
 	<li>Vulnerabilities:</li>
 		<ul>
@@ -38,13 +38,14 @@
 
 			  	<div>
 				  	<img src='result_of_XSS.jpg' alt='window notifier as result of XSS attack'>
-				  	<div class="last_caption">The image above shows the window alert that pops up when the javascript is run after the POST</div>
+				  	<div class="last_caption">The image above shows the window alert that pops up when the javascript is run after the POST. If 'OK' is clicked or if the 'x' button is clicked, the user is directed to a YouTube</div>
 			  	</div> 
-	<div>
+
+			<div><p>
 			This XSS vulnerability can be minimized by using escapement of user input. By escaping characters that are commonly used in script attacks, the possibility of a XSS as shown in the example is reduced. </br></br></br>
-		  	
-	</div>
-	</div>
+			</p></div>
+			</ul>
+		</div>
 
 	<div>
 		  <li>Insecure Direct Object Vulnerabilities</li>
