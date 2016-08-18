@@ -4,12 +4,26 @@
 
 <h2>Security Vulnerabilities</h2>
 
-<ul>
-  <li>Introduction:</li>
-  <li>Cross-Scripting Vulnerability</li>
-  <li>Insecure Direct Object Vulnerabilities</li>
-  <li>Cross-site Request Forgery</li>
-</ul>
+<ol>
+	<li>Introduction:</li>
+		<ul>This is an examination of the security of the sudo Foursquare website dedicated to storing user checkin data. Users can post their checkins to the server to create a log of past locations and the time of visit.</ul>
 
+	<li>Methodology:</li>
+		<ul>The methodology I used to test the application was first by using the "black box" method, which involves attacking the website without examining the source code to check for basic XSS vulnerabilities. Then I looked at the source code to determine whether other instances of XSS vulnerabilities existed.</ul>
+
+	<li>Abstract (General Issues)</li>
+		<ul>The biggest problem with the application was the possibility for XSS attacks. The first attack was a post of javascript in the place of the expected user "login" field. The javascript created a simple redirect to a YouTube video.
+  
+	<li>Vulnerabilities:</li>
+		<ul>
+		  <li>Cross-Scripting Vulnerability (XSS)</li>
+		  	<ul>The first instance of vulnerability was in the input of user information. In the place of a "login" name, it was possible to POST javascript that ran a redirect to a YouTube video</ul>
+		  	
+		  <li>Insecure Direct Object Vulnerabilities</li>
+		  	<ul>The second one</ul>
+		  <li>Cross-site Request Forgery</li>
+		  	<ul>This is the last vulnerability</ul>
+		</ul>
+</ol>
 </body>
 </html>
