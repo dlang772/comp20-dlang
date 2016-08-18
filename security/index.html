@@ -25,11 +25,11 @@
 		<ul>
 		  <li>Cross-Scripting Vulnerability (XSS)</li>
 		  	<ul>The first instance of vulnerability was in the input of user information. In the place of a "login" name, it was possible to POST javascript that ran a redirect to a YouTube video </br>
-		  	<div class="screenshot">
-		  	<img src='expected_POST.jpg' alt='expected POST user input'>
-		  	<span class="caption">The image above shows the expected user input POST to /sendLocation</span>
-		  	</div> 
-
+			  	<div class="screenshot">
+				  	<img src='expected_POST.jpg' alt='expected POST user input'>
+				  	<span class="caption">The image above shows the expected user input POST to /sendLocation</br></span>
+			  	</div> 
+			<ul>This XSS vulnerability can be minimized by using escapement of user input. By escaping characters that are commonly used in script attacks, the possibility of a XSS as shown in the example is reduced.</ul>
 		  	</ul>
 
 		  <li>Insecure Direct Object Vulnerabilities</li>
