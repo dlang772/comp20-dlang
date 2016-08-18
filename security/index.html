@@ -25,7 +25,7 @@
 		<ul>
 		<div>
 		  <li>Cross-Scripting Vulnerability (XSS)</li>
-		  	<ul>The first instance of vulnerability was in the input of user information. In the place of a "login" name, it was possible to POST javascript that ran a redirect to a YouTube video:
+		  	<ul>[HIGH RISK] The first instance of vulnerability was in the input of user information. In the place of a "login" name, it was possible to POST javascript that ran a redirect to a YouTube video. This poses a high risk to the website because malicious code could be posted that would initiate a transfer of data for example of information from the server. In addition, it allows for someone to log keystrokes while keeping the front end looking the same to the user.:
 			  	<div>
 				  	<img src='expected_POST.jpg' alt='expected POST user input'>
 				  	<div class="caption">The image above shows the expected user input POST to /sendLocation</div>
