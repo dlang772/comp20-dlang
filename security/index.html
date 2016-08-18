@@ -23,20 +23,36 @@
   
 	<li>Vulnerabilities:</li>
 		<ul>
+		<div>
 		  <li>Cross-Scripting Vulnerability (XSS)</li>
-		  	<ul>The first instance of vulnerability was in the input of user information. In the place of a "login" name, it was possible to POST javascript that ran a redirect to a YouTube video </br>
-			  	<div class="screenshot">
+		  	<ul>The first instance of vulnerability was in the input of user information. In the place of a "login" name, it was possible to POST javascript that ran a redirect to a YouTube video:
+			  	<div>
 				  	<img src='expected_POST.jpg' alt='expected POST user input'>
-				  	<span class="caption">The image above shows the expected user input POST to /sendLocation</br></span>
+				  	<div class="caption">The image above shows the expected user input POST to /sendLocation</div>
 			  	</div> 
-			<ul>This XSS vulnerability can be minimized by using escapement of user input. By escaping characters that are commonly used in script attacks, the possibility of a XSS as shown in the example is reduced.</ul>
-		  	</ul>
 
+			  	<div>
+				  	<img src='input_javascript.jpg' alt='XSS attack javascript in input'>
+				  	<div class="caption">The image above shows the XSS attack in the user input POST to /sendLocation. The attack uses javascript and redirects to a YouTube page.</div>
+			  	</div> 
+
+			  	<div>
+				  	<img src='result_of_XSS.jpg' alt='window notifier as result of XSS attack'>
+				  	<div class="last_caption">The image above shows the window alert that pops up when the javascript is run after the POST</div>
+			  	</div> 
+	<div>
+			This XSS vulnerability can be minimized by using escapement of user input. By escaping characters that are commonly used in script attacks, the possibility of a XSS as shown in the example is reduced. </br></br></br>
+		  	
+	</div>
+	</div>
+
+	<div>
 		  <li>Insecure Direct Object Vulnerabilities</li>
 		  	<ul>The second one</ul>
 		  <li>Cross-site Request Forgery</li>
 		  	<ul>This is the last vulnerability</ul>
 		</ul>
+	</div>
 </ol>
 </body>
 </html>
