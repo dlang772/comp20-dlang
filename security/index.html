@@ -1,8 +1,15 @@
 <!DOCTYPE html>
 <html>
+
+<head>
+		<meta charset="utf-8" />
+		<title>Web Security</title>
+		<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
 <body>
 
-<h2>Security Vulnerabilities</h2>
+<h2>Security Vulnerabilities of vulnerableapp.herokuapp.com</h2>
 
 <ol>
 	<li>Introduction:</li>
@@ -17,8 +24,14 @@
 	<li>Vulnerabilities:</li>
 		<ul>
 		  <li>Cross-Scripting Vulnerability (XSS)</li>
-		  	<ul>The first instance of vulnerability was in the input of user information. In the place of a "login" name, it was possible to POST javascript that ran a redirect to a YouTube video</ul>
-		  	
+		  	<ul>The first instance of vulnerability was in the input of user information. In the place of a "login" name, it was possible to POST javascript that ran a redirect to a YouTube video </br>
+		  	<div class="screenshot">
+		  	<img src='expected_POST.jpg' alt='expected POST user input'>
+		  	<span class="caption">The image above shows the expected user input POST to /sendLocation</span>
+		  	</div> 
+
+		  	</ul>
+
 		  <li>Insecure Direct Object Vulnerabilities</li>
 		  	<ul>The second one</ul>
 		  <li>Cross-site Request Forgery</li>
